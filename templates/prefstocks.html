@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowTech </title>
+    <link rel="stylesheet" href="../static/prefstocks.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="{{url_for("dashboard")}}" class="active">Search your favourite stocks</a>
+        <a href="{{url_for("preferences")}}">Set your preferences</a>
+        <a href="{{url_for("prefstocks")}}">My favourite stocks</a>
+        <a href="{{url_for('logout')}}" style="float: right;">Press here to logout</a>
+    </div>
+    <h1>Your favourite stocks</h1>
+    <div class="parentdiv">
+        {% for datum in data%}
+             {% for element in datum%}
+                <div class="child">
+                    <h3>{{element[0]}}</h3>
+                    <img src="{{element[1]}}" alt="">
+                </div>
+            {% endfor %}
+                <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>

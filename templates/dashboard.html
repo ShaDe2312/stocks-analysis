@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/dashboard.css" />
+    <title>Dashboard</title>
+
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="{{url_for("dashboard")}}" class="active">Search your favourite stocks</a>
+        <a href="{{url_for("preferences")}}">Set your preferences</a>
+        <a href="{{url_for("prefstocks")}}">My favourite stocks</a>
+        <a href="{{url_for('logout')}}" style="float: right;">Press here to logout</a>
+    </div>
+
+    <h1 style="color: aliceblue; text-align: center; padding-top: 100px;">Search for your favourite stock.</h1>
+    <form style="  text-align: center;" action="{{ url_for("search")}}" method="POST">
+        <input type="search" name="search_param" id="search-input"> 
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- <a href="{{url_for("message")}}">Send a message</a> -->
+
+    <div class="parentdiv">
+        {% for datum in data%}
+        <div class="child">
+            <h3>{{datum[0]}}</h3>
+            <img src="{{datum[1]}}" alt="">
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>

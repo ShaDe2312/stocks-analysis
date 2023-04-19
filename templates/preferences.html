@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowTech | Preferences</title>
+    <link rel="stylesheet" href="../static/preferences.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="{{url_for("dashboard")}}" class="active">Search your favourite stocks</a>
+        <a href="{{url_for("preferences")}}">Set your preferences</a>
+        <a href="{{url_for("prefstocks")}}">My favourite stocks</a>
+        <a href="{{url_for('logout')}}" style="float: right;">Press here to logout</a>
+    </div>
+    
+    <div class="parentdiv">
+        <form action="{{url_for('preferences')}}" method="post">
+            <label for="s1">Stock 1</label>
+            <input type="text" name="stock1">
+            <label for="s2">Stock 2</label>
+            <input type="text" name="stock2">
+            <label for="s3">Stock 3</label>
+            <input type="text" name="stock3">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
